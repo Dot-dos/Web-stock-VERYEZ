@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ระบบตัดสต๊อค (บริษัท)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+<div class="max-w-6xl mx-auto bg-white rounded-2xl shadow p-6">
+  <h1 class="text-2xl font-bold mb-6">📦 ระบบตัดสต๊อค (S.Guard)</h1>
+
+  <!-- INPUT -->
+  <div class="grid md:grid-cols-5 gap-3 mb-6">
+    <select id="item" class="border p-2 rounded"></select>
+    <select id="type" class="border p-2 rounded">
+      <option value="IN">รับเข้า</option>
+      <option value="OUT">จ่ายออก</option>
+    </select>
+    <input id="qty" type="number" placeholder="จำนวน" class="border p-2 rounded">
+    <input id="user" placeholder="ชื่อผู้ทำรายการ" class="border p-2 rounded">
+    <button onclick="saveLog()" class="bg-green-600 text-white rounded">บันทึก</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <h2 class="font-semibold mb-2">📊 สรุปคงเหลือ</h2>
+  <div id="summary" class="mb-6 text-sm"></div>
+
+  <!-- FILTER -->
+  <h2 class="font-semibold mb-2">🔍 ประวัติการเคลื่อนไหว</h2>
+  <div class="flex gap-2 mb-2">
+    <input id="from" type="date" class="border p-1 rounded">
+    <input id="to" type="date" class="border p-1 rounded">
+    <button onclick="loadLogs()" class="bg-slate-600 text-white px-3 rounded">ค้นหา</button>
+    
+  </div>
+
+  <table class="w-full text-sm bg-white border">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="border p-1">วันที่</th>
+        <th class="border p-1">สินค้า</th>
+        <th class="border p-1">ประเภท</th>
+        <th class="border p-1">จำนวน</th>
+        <th class="border p-1">ผู้ทำรายการ</th>
+      </tr>
+    </thead>
+    <tbody id="logs"></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

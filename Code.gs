@@ -19,7 +19,6 @@ function doGet(e) {
       .createTextOutput(JSON.stringify(data))
       .setMimeType(ContentService.MimeType.JSON);
   }
-
   return ContentService.createTextOutput("ok");
 }
 
